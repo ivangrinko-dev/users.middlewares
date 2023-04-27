@@ -94,18 +94,41 @@ function getUsersById(id) {
   return feiltered;
 }
 
-function createUsersById(name, surname,email, pwd ) {
-  arr.push({id:arr.length+1, name: name, surname: surname, email: email, pwd: pwd });
+function createUsersById(name, surname, email, pwd) {
+  arr.push({
+    id: arr.length + 1,
+    name: name,
+    surname: surname,
+    email: email,
+    pwd: pwd,
+  });
   return arr;
 }
 
-function upUsersById(id, name, surname,email, pwd ) {
-    const feiltered = arr.filter((elem) => elem.id != id);
-    if (feiltered.length == arr.length) throw new Error(`Такого id нет`)
-  feiltered.push({id:id, name: name, surname: surname, email: email, pwd: pwd })
-    
-    return feiltered;
-  
+function upUsersById(id, name, surname, email, pwd) {
+  const feiltered = arr.filter((elem) => elem.id != id);
+  if (feiltered.length == arr.length) throw new Error(`Такого id нет`);
+  feiltered.push({
+    id: id,
+    name: name,
+    surname: surname,
+    email: email,
+    pwd: pwd,
+  });
+
+  return feiltered;
 }
 
-module.exports = { getAllUsers, getUsersById, createUsersById, upUsersById };
+function deleteUsersById(id) {
+  const feiltered = arr.filter((elem) => elem.id != id);
+  if (feiltered.length == arr.length) throw new Error(`Такого id нет`);
+  return feiltered;
+}
+
+module.exports = {
+  getAllUsers,
+  getUsersById,
+  createUsersById,
+  upUsersById,
+  deleteUsersById,
+};
