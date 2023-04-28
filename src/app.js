@@ -1,11 +1,13 @@
-const exspress = require("express");
-const bodyParser = require(`body-parser`)
-const { router } = require(`./controller/user.controller.js`);
+const express = require("express");
+const bodyParser = require("body-parser");
+const user = require(`./controller/user.controller`);
 
-const app = exspress();
+const app = express();
 
 app.use(bodyParser.json());
 
-app.use(`/user`, router);
+app.use(`/user`, user);
 
-module.exports = { app };
+app.use((error, req, res, next) => res.send(error.message));
+
+module.exports = app;
