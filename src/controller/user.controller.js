@@ -3,6 +3,7 @@ const {
   getAllUsers,
   getUserById,
   createUser,
+  upUserById,
   deleteUser,
 } = require(`../service/user.service`);
 
@@ -24,6 +25,14 @@ router.post("/", (req, res) => {
   const data = createUser(name, surname, email, pwd);
   res.send(data);
 });
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const { name, surname, email, pwd } = req.body;
+  const data = upUserById(id, name, surname, email, pwd);
+  res.send(data);
+});
+
 
 router.delete(`/:id`, (req, res) => {
   const { id } = req.params;
