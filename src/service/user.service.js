@@ -40,7 +40,7 @@ function upUserById(id, name, surname, email, pwd) {
   } else {
     throw new Error("такого id нет");
   }
-  fs.writeFileSync(path, JSON.stringify(data));
+  fs.writeFileSync(path, JSON.stringify(filtered));
   return filtered;
 }
 
