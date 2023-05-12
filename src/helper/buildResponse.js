@@ -1,6 +1,5 @@
-function buildResponse(res, data, number){
-    res.status(number).send(data)
-
+function buildResponse(res, data, number) {
+  res.status(number).send(data);
 }
 
-module.exports = {buildResponse}
+module.exports = { buildResponse };
